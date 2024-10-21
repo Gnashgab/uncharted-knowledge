@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.desc {
+  color: #717171;
+  font-family: "Roboto", monospace;
+  margin: 100px 0 20px 0;
+  text-align: center;
+  p {
+    font-size: 1.3rem;
+  }
+  span {
+    color: #333;
+    font-weight: 800;
+  }
+}
+.stick-list {
+  height: 490px;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  margin-bottom: 120px;
+  gap: 2px;
+}
+.stick {
+  height: 350px;
+  width: 50px;
+  border-radius: 50px;
+  background-color: black;
+  transition: 0.3s cubic-bezier(0.34, 0.85, 0, 0.99);
+}
+
+.stick-list:hover .stick:hover {
+  height: 490px;
+}
+
+.stick-list:hover .stick:not(:hover) {
+  height: 320px;
+  filter: opacity(0.5);
+}
+
+.stick-list:hover .stick:has(+ .stick:hover),
+.stick-list:hover .stick:hover + .stick {
+  height: 420px;
+  filter: opacity(0.8);
+}
+
+.stick-list:hover .stick:has(+ .stick + .stick:hover),
+.stick-list:hover .stick:hover + .stick + .stick {
+  height: 350px;
+  filter: opacity(0.6);
+}
